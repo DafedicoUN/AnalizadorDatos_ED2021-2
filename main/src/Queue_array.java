@@ -1,75 +1,93 @@
-class Queue_array {
+class Queue_array implements queue {
+
     private static int front, rear, capacity;
     private static int[] queue;
 
     Queue_array(int c)
     {
+        //Índices del frente y la parte trasera tienen un valor de 0.
         front = rear = 0;
+        //Capacidad de la cola
         capacity = c;
         queue = new int[capacity];
     }
 
-    // function to insert an element
-    // at the rear of the queue
-    static void queueEnqueue(int data)
+    //Agrega un elemento a la cola.
+    public void enqueue(int data)
     {
-        // check queue is full or not
+
+        //Verifica si la cola está llena o no.
         if (capacity == rear) {
-            System.out.print("\nQueue is full\n");
+            System.out.println("Queue is full");
         }
 
-        // insert element at the rear
+        //Insertar elemento en la cola.
         else {
             queue[rear] = data;
+            //Rear aumenta, es el índice donde irá el último elemento en la cola.
             rear++;
+
         }
     }
 
-    // function to delete an element
-    // from the front of the queue
-    static void queueDequeue()
+    //Elimina un elemento del frente de la cola.
+    public void dequeue()
     {
-        // if queue is empty
+
+        //Si la cola está vacia.
         if (front == rear) {
-            System.out.print("\nQueue is empty\n");
+            System.out.println("Queue is empty");
         }
 
-        // shift all the elements from index 2 till rear
-        // to the right by one
         else {
+            //Todos los elementos se desplazan hacia la izquierda borrando el primer elemento ingresado.
+            //First IN, First OUT.
             if (rear - 1 >= 0) System.arraycopy(queue, 1, queue, 0, rear - 1);
 
-            // store 0 at rear indicating there's no element
-            if (rear < capacity)
-                queue[rear] = 0;
+            //Guarda un 0 indicando que no hay valor en la posición del último que ingresó.
+            if (rear < capacity) queue[rear] = 0;
 
-            // decrement rear
+            //La posición de la parte trasera de la cola disminuye.
             rear--;
         }
     }
 
-    // print queue elements
-    static void queueDisplay()
+    //Imprime los elementos de la cola.
+    public void queueDisplay()
     {
         int i;
         if (front == rear) {
-            System.out.print("\nQueue is Empty\n");
+            System.out.println("Queue is Empty");
             return;
         }
 
-        // traverse front to rear and print elements
+        //Itera imprimiendo todos los elementos empezando por el frente.
         for (i = front; i < rear; i++) {
-            System.out.printf(" %d <-- ", queue[i]);
+            if (i + 1 == rear){
+                System.out.print(queue[i] + "\n");
+            } else {
+                System.out.print(queue[i] + " ");
+            }
         }
+
+        /*
+        for (i = rear - 1; i >= front; i--){
+            if (i == front){
+                System.out.print(queue[i] + "\n");
+            } else {
+                System.out.print(queue[i] + " ");
+            }
+        }
+        */
     }
 
-    // print front of queue
+    //Imprime el frente de la cola.
     static void queueFront()
     {
         if (front == rear) {
-            System.out.print("\nQueue is Empty\n");
+            System.out.println("Queue is Empty");
             return;
         }
-        System.out.printf("\nFront Element is: %d", queue[front]);
+        System.out.println("Front Element is: " + queue[front]);
     }
 }
