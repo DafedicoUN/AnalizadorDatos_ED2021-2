@@ -81,13 +81,22 @@ class Queue_array implements queue {
         */
     }
 
-    //Imprime el frente de la cola.
-    static void queueFront()
+    public void queueSearch(int search)
     {
+        int i;
         if (front == rear) {
             System.out.println("Queue is Empty");
             return;
         }
-        System.out.println("Front Element is: " + queue[front]);
+
+        for (i = front; i < rear; i++) {
+            if (search == queue[i]){
+                System.out.println("Found");
+                return;
+            }
+        }
+        System.out.println("Not found");
     }
+
+
 }

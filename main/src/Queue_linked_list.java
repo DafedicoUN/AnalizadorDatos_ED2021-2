@@ -1,9 +1,7 @@
 public class Queue_linked_list implements queue {
 
-    private static int data;
-    private static Node next;
-
-    static class Node {
+    static class Node
+    {
         int data;
         Node next;
 
@@ -55,16 +53,9 @@ public class Queue_linked_list implements queue {
             this.rear = null;
     }
 
-    //Imprime la cola empezando por el nodo del frente.
-    public void queueDisplay()
-    {
-        queueNodeDisplay(this.front);
-    }
-
     //Imprime los nodos de la cola de manera recursiva.
     public void queueNodeDisplay(Node a)
     {
-
         if (null == a.next) {
             System.out.print(a.data + "\n");
         } else {
@@ -72,6 +63,35 @@ public class Queue_linked_list implements queue {
             queueNodeDisplay(a.next);
         }
     }
+
+    //Imprime la cola empezando por el nodo del frente.
+    public void queueDisplay()
+    {
+        queueNodeDisplay(this.front);
+    }
+
+    //Busca el dato en los nodos de la cola de manera recursiva.
+    public void queueNodeSearch(Node a, int search)
+    {
+        if (null == a.next) {
+            System.out.println("Not found");
+        } else {
+            if(a.data == search){
+                System.out.println("Found");
+            } else {
+                queueNodeSearch(a.next, search);
+            }
+        }
+    }
+
+    //Imprime si un dato en específico fue encontrado o no.
+    public void queueSearch(int search)
+    {
+        queueNodeSearch(this.front, search);
+
+    }
+
+
 
 
 
