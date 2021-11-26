@@ -2,11 +2,11 @@ public class Queue_linked_list implements queue {
 
     static class Node
     {
-        int data;
+        double data;
         Node next;
 
         //Constructor para crear un nuevo nodo de la cola.
-        public Node(int data) {
+        public Node(double data) {
             this.data = data;
             this.next = null;
         }
@@ -20,7 +20,7 @@ public class Queue_linked_list implements queue {
     }
 
     //Argegar un elemento a la cola.
-    public void enqueue(int data)
+    public void enqueue(double data)
     {
 
         //Crear un nuevo nodo
@@ -45,7 +45,7 @@ public class Queue_linked_list implements queue {
             return;
 
         //Guarda el anterior frente y mueve el frente al siguiente dato del frente actual.
-        Node temp = this.front;
+        //Node temp = this.front;
         this.front = this.front.next;
 
         //Si el nuevo frente el nulo, cambia la parte trasera a nulo.
@@ -80,7 +80,7 @@ public class Queue_linked_list implements queue {
     }
 
     //Busca el dato en los nodos de la cola de manera recursiva.
-    public void queueNodeSearch(Node a, int search)
+    public void queueNodeSearch(Node a, double search)
     {
         if (null == a.next) {
             System.out.println("Not found");
@@ -94,16 +94,42 @@ public class Queue_linked_list implements queue {
     }
 
     //Imprime si un dato en específico fue encontrado o no.
-    public void queueSearch(int search)
+    public void queueSearch(double search)
     {
         queueNodeSearch(this.front, search);
-
     }
 
     //Vacía la cola.
-    public void emptyQueue()
+    public void queueEmpty()
     {
         this.front = null;
         this.rear = null;
+    }
+
+    //Suma los valores de los nodos de la cola de manera recursiva.
+    public double queueNodeSum(Node a)
+    {
+        if (null == a.next) {
+            return a.data;
+        } else {
+            return a.data + queueNodeSum(a.next);
+            }
+    }
+
+    public int queueNodeCount(Node a)
+    {
+        if (null == a.next) {
+            return 1;
+        } else {
+            return 1 + queueNodeCount(a.next);
+        }
+    }
+
+    //Imprime el promedio de los valores la cola.
+    @Override
+    public void queueAverage() {
+        double sum = queueNodeSum(this.front);
+        int count = queueNodeCount(this.front);
+        System.out.println(sum/count);
     }
 }

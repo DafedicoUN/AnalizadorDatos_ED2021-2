@@ -1,9 +1,10 @@
 public interface queue {
 
-    void enqueue(int data);
+    void enqueue(double data);
     void dequeue();
     void queueDisplay();
-    void queueSearch(int search);
-    void emptyQueue();
+    void queueSearch(double search);
+    void queueEmpty();
+    void queueAverage();
 
 }

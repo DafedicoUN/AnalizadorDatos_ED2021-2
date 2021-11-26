@@ -1,7 +1,7 @@
 class Queue_array implements queue {
 
     private static int front, rear, capacity;
-    private static int[] queue;
+    private static double[] queue;
 
     Queue_array(int c)
     {
@@ -9,11 +9,11 @@ class Queue_array implements queue {
         front = rear = 0;
         //Capacidad de la cola
         capacity = c;
-        queue = new int[capacity];
+        queue = new double[capacity];
     }
 
     //Agrega un elemento a la cola.
-    public void enqueue(int data)
+    public void enqueue(double data)
     {
 
         //Verifica si la cola está llena o no.
@@ -82,7 +82,7 @@ class Queue_array implements queue {
     }
 
     //Busca un elemento en la cola.
-    public void queueSearch(int search)
+    public void queueSearch(double search)
     {
         int i;
         if (front == rear) {
@@ -100,7 +100,7 @@ class Queue_array implements queue {
     }
 
     //Vacía la cola.
-    public void emptyQueue()
+    public void queueEmpty()
     {
         int i;
 
@@ -113,6 +113,26 @@ class Queue_array implements queue {
         }
 
         rear -= i;
+    }
+
+
+
+    @Override
+    public void queueAverage()
+    {
+        int i;
+        double sum = 0;
+
+        if (front == rear) {
+            return;
+        }
+
+        for (i = front; i < rear; i++) {
+            sum += queue[i];
+        }
+
+        System.out.println(sum / i);
+
     }
 
 

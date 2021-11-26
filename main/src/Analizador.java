@@ -3,14 +3,9 @@ import java.util.*;
 public class Analizador {
 
     public static void main(String[] args){
-        Queue_array q = new Queue_array(100);
 
-        //Queue_linked_list q = new Queue_linked_list();
+        Timer timer = new Timer();
+        timer.schedule(new Emulador(), 0, 1000);
 
-        for(int i = 0; i < 10;i++){
-            q.enqueue(i);
-        }
-
-        q.queueDisplay();
     }
 }
