@@ -115,9 +115,6 @@ class Queue_array implements queue {
         rear -= i;
     }
 
-
-
-    @Override
     public void queueAverage()
     {
         int i;
@@ -133,6 +130,24 @@ class Queue_array implements queue {
 
         System.out.println(sum / i);
 
+    }
+
+    public void queueMax()
+    {
+        int i;
+        double max = 0;
+
+        if (front == rear) {
+            return;
+        }
+
+        for (i = front; i < rear; i++) {
+            if (max < queue[i]){
+                max = queue[i];
+            }
+        }
+
+        System.out.println(max);
     }
 
 

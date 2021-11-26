@@ -126,10 +126,29 @@ public class Queue_linked_list implements queue {
     }
 
     //Imprime el promedio de los valores la cola.
-    @Override
     public void queueAverage() {
         double sum = queueNodeSum(this.front);
         int count = queueNodeCount(this.front);
         System.out.println(sum/count);
+    }
+
+    public double queueNodeMax(Node a)
+    {
+        if (null == a.next) {
+            return a.data;
+        } else {
+            double max = a.data;
+            double data = queueNodeMax(a.next);
+            if(max < data){
+                max = data;
+                return max;
+            } else {
+                return max;
+            }
+        }
+    }
+
+    public void queueMax() {
+        System.out.println(queueNodeMax(this.front));
     }
 }

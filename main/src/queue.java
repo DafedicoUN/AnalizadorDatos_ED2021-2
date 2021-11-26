@@ -6,5 +6,6 @@ public interface queue {
     void queueSearch(double search);
     void queueEmpty();
     void queueAverage();
+    void queueMax();
 
 }
