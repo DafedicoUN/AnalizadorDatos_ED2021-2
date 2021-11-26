@@ -57,7 +57,11 @@ public class Queue_linked_list implements queue {
     public void queueNodeDisplay(Node a)
     {
         if (null == a.next) {
-            System.out.print(a.data + "\n");
+            if(a.data == -1){
+                System.out.println("Queue is empty");
+            } else {
+                System.out.print(a.data + "\n");
+            }
         } else {
             System.out.print(a.data + " ");
             queueNodeDisplay(a.next);
@@ -67,7 +71,12 @@ public class Queue_linked_list implements queue {
     //Imprime la cola empezando por el nodo del frente.
     public void queueDisplay()
     {
-        queueNodeDisplay(this.front);
+        if(this.front == null){
+            System.out.println("Queue is empty");
+        } else {
+            queueNodeDisplay(this.front);
+        }
+
     }
 
     //Busca el dato en los nodos de la cola de manera recursiva.
@@ -91,10 +100,10 @@ public class Queue_linked_list implements queue {
 
     }
 
-
-
-
-
-
-
+    //Vacía la cola.
+    public void emptyQueue()
+    {
+        this.front = null;
+        this.rear = null;
+    }
 }

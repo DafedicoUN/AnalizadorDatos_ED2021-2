@@ -81,6 +81,7 @@ class Queue_array implements queue {
         */
     }
 
+    //Busca un elemento en la cola.
     public void queueSearch(int search)
     {
         int i;
@@ -96,6 +97,22 @@ class Queue_array implements queue {
             }
         }
         System.out.println("Not found");
+    }
+
+    //Vacía la cola.
+    public void emptyQueue()
+    {
+        int i;
+
+        if (front == rear) {
+            return;
+        }
+
+        for (i = front; i < rear; i++) {
+            queue[i] = 0;
+        }
+
+        rear -= i;
     }
 
 

@@ -4,7 +4,6 @@ public interface queue {
     void dequeue();
     void queueDisplay();
     void queueSearch(int search);
-
-
+    void emptyQueue();
 
 }
