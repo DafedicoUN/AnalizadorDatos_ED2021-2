@@ -82,7 +82,7 @@ public class Queue_linked_list implements queue {
     //Busca el dato en los nodos de la cola de manera recursiva.
     public void queueNodeSearch(Node a, double search)
     {
-        if (null == a.next) {
+        if (null == a.next && a.data != search) {
             System.out.println("Not found");
         } else {
             if(a.data == search){
