@@ -1,0 +1,125 @@
+class linked_List_Stack{
+    Node top;
+    int size;
+    class Node{
+        double data;
+        Node next;
+
+        public Node(double data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    boolean Empty(){
+        return size==0;
+    }
+    public void stacks(double data){
+        Node temp= new Node(data);
+        temp.next=top;
+        top=temp;
+        size++;
+    }
+    public void unstack(){
+        if (Empty()){
+            System.out.print("\n"+"Stack is empty"+"\n");
+        }
+        else{
+            top=top.next;
+            size--;
+        }
+    }
+    public void stackDisplay(){
+        if (Empty()){
+            System.out.print("\n"+"Stack is empty"+"\n");
+        }
+        else{
+            Node a=top;
+            while (a!=null){
+                if (a.next!=null){
+                    System.out.print(a.data+" ");
+                    a=a.next;
+                }
+                else
+                    break;
+            }
+            System.out.print(a.data+"\n");
+        }
+    }
+
+
+    public void stackFind(double data){
+        Node a =top;
+        int r=0;
+        while(a.data!=data ){
+            if (a.next!=null){
+                a=a.next;
+                r=1;
+            }
+            else{
+                r=-1;
+                break;
+            }
+        }
+        if (r==-1){
+            System.out.print("not found"+"\n");
+        }
+        else{
+            System.out.print("found"+"\n");
+        }
+    }
+    public void max(){
+        double max=0;
+        Node a = top;
+        while(a!=null){
+            if(max < a.data)
+                max=a.data;
+            a=a.next;
+        }
+        System.out.print("\n"+max);
+    }
+    public void min(){
+        double min=Double.MAX_VALUE;
+        Node a = top;
+        while(a!=null){
+            if(min > a.data)
+                min=a.data;
+            a=a.next;
+        }
+        System.out.print("\n"+min);
+    }
+    public void stackEmpty(){
+        top=null;
+        size=0;
+    }
+
+    public void stackAverage(){
+        Node a=top;
+        double sum=0;
+        int count=0;
+        while (a!=null){
+            sum+=a.data;
+            count++;
+            a=a.next;
+        }
+        System.out.print("\n" +sum/(count));
+    }
+}
+
+public class Main{
+    public static void main(String[] args){
+        long inicio,fin,sum=0;
+        int size=50000000;
+        linked_List_Stack s2= new linked_List_Stack();
+
+        for(int i=0;i<size;i++){
+            s2.stacks(i);
+        }
+        inicio=System.nanoTime();
+        s2.stackAverage();
+        fin=System.nanoTime();
+        sum=fin-inicio;
+        System.out.print("\n"+sum);
+    }
+}
+
+
