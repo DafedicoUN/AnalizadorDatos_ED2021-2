@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="997d156e-5150-49b0-ba68-4a66dec24de3" name="Changes" comment="Creación de las clases bases de las estructuras de datos.">
+    <list default="true" id="997d156e-5150-49b0-ba68-4a66dec24de3" name="Changes" comment="Creación de las clases bases de las estructuras de datos para PUNTO 1.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/project/Main.java" afterDir="false" />
     </list>
@@ -89,6 +89,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -102,6 +103,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -112,7 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1639885394698</updated>
       <workItem from="1639885395885" duration="247000" />
-      <workItem from="1640023864196" duration="628000" />
+      <workItem from="1640023864196" duration="6480000" />
     </task>
     <task id="LOCAL-00001" summary="Creación de las clases bases de las estructuras de datos.">
       <created>1640024181548</created>
@@ -139,7 +145,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Creación de las clases bases de las estructuras de datos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creación de las clases bases de las estructuras de datos." />
+    <MESSAGE value="Creación de las clases bases de las estructuras de datos para PUNTO 1." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creación de las clases bases de las estructuras de datos para PUNTO 1." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PARCIAL_1___PUNTO_1$Main.ic" NAME="Main Coverage Results" MODIFIED="1640029989536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
