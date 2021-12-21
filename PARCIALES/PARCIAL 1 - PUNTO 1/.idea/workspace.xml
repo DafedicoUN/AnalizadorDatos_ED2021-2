@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="997d156e-5150-49b0-ba68-4a66dec24de3" name="Changes" comment="Creación de las clases bases de las estructuras de datos para PUNTO 1.">
+    <list default="true" id="997d156e-5150-49b0-ba68-4a66dec24de3" name="Changes" comment="Punto 1 resuelto, falta comentar.">
+      <change afterPath="$PROJECT_DIR$/out/production/PARCIAL 1 - PUNTO 1/com/project/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/PARCIAL 1 - PUNTO 1/com/project/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/List.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/List_interface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Queue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Stack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/src/com/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/src/com/project/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +125,8 @@
       <option name="presentableId" value="Default" />
       <updated>1639885394698</updated>
       <workItem from="1639885395885" duration="247000" />
-      <workItem from="1640023864196" duration="6480000" />
+      <workItem from="1640023864196" duration="6783000" />
+      <workItem from="1640035294192" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="Creación de las clases bases de las estructuras de datos.">
       <created>1640024181548</created>
@@ -127,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640024181548</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Punto 1 resuelto, falta comentar.">
+      <created>1640033917945</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640033917945</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +163,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Creación de las clases bases de las estructuras de datos." />
     <MESSAGE value="Creación de las clases bases de las estructuras de datos para PUNTO 1." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creación de las clases bases de las estructuras de datos para PUNTO 1." />
+    <MESSAGE value="Punto 1 resuelto, falta comentar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Punto 1 resuelto, falta comentar." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PARCIAL_1___PUNTO_1$Main.ic" NAME="Main Coverage Results" MODIFIED="1640029989536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
