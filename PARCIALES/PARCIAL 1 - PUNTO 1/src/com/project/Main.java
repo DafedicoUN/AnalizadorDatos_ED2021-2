@@ -2,7 +2,7 @@ package com.project;
 
 import java.util.Scanner;
 
-//Constructor para  crear un nodo en la lista doblemente enlazada.
+//Constructor para  crear un nodo en la lista .
 class Node {
 
     int data;       
