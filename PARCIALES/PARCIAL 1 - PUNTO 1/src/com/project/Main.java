@@ -37,10 +37,10 @@ class Deck {
 
     int size = 0;
 
-    //Metodo para añadir un dato al frente del mazo.
+    //Metodo para añadir un dato al inicio del mazo.
     public void append(int data){
         if(front == null){
-          //si el mazo esta vacio last y front seran iguales al dato ingresado.
+          //si el mazo esta vacio el inicio y final seran iguales al dato ingresado.
             front = new Node(data);
             last = front;
         } else {
@@ -67,12 +67,12 @@ class Deck {
             int data;
             //escoge la carta con un valor mayor, y la extrae del mazo, su valor queda en null.
             if(front.data >= last.data ){
-              //si la carta del frente es mayor.
+              //si la carta del inicio es mayor.
                 data = front.data;
                 front = front.next;
                 front.behind = null;
             } else {
-              //si la ultima carta de es mayor.
+              //si la ultima carta de el mazo es mayor.
                 data = last.data;
                 last = last.behind;
                 last.next = null;
@@ -112,7 +112,7 @@ class Players {
         Player_node temp = front;
         //ciclo para sumar la carta mayor.
         while(deck.front != null){
-          //suma d carta con mayor valor mediante el medoto CompareDeck();
+          //suma de carta con mayor valor mediante el medoto CompareDeck();
             temp.sum += deck.compareDeck();
             //cambiar de jugador.
             temp = temp.next;
