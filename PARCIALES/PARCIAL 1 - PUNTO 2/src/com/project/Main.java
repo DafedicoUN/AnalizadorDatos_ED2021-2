@@ -148,7 +148,7 @@ public class Main {
                 if(has_printed){
                     System.out.print("\n");
                 }
-                //imprimir region 1 con sus respectivos paquetes ordenados segun entrega.
+                //imprimir region con sus respectivos paquetes ordenados segun entrega.
                 System.out.print(contador + " ");
 
                 truck.printList();
