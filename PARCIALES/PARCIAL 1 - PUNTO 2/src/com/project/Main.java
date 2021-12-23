@@ -118,7 +118,7 @@ public class Main {
         int piles_number = scanner.nextInt();
 
         Pile pile = new Pile();
-        //ciclo para añadir un nuevo paquete a la pila segun la entrada.
+        //ciclo para añadir un nuevo paquete al monton segun la entrada.
         for(int i = 0; i < packages_number;i++){
             int ID = scanner.nextInt();
             int x = scanner.nextInt();
