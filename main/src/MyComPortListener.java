@@ -1,5 +1,4 @@
 import com.fazecast.jSerialComm.*;
-
 // Esta clase es importante, toma la clase "SerialportDatalistener" y la hereda, pero cambia en la herencia los metodos
 // getListeningEvents() y SerialEvent() de manera que pueda recibir los bits del arduino sin problemas
 
@@ -14,8 +13,9 @@ public class MyComPortListener implements SerialPortDataListener
     @Override
     public int getListeningEvents() 
     { 
-        return SerialPort.LISTENING_EVENT_DATA_AVAILABLE; 
+        return SerialPort.LISTENING_EVENT_DATA_AVAILABLE;
     }
+
     // Al Disparar el evento se sobreescrive este evento, esto permite que los datos en binario puedan convertirse en un Byte
     // Se llama a la clase "reformatBuffer" para reordenar los caracteres obtenidos y escribir una frase como string
     @Override

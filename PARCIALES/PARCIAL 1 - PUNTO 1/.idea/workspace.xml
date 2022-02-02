@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="997d156e-5150-49b0-ba68-4a66dec24de3" name="Changes" comment="Punto 1 resuelto, falta comentar.">
-      <change afterPath="$PROJECT_DIR$/out/production/PARCIAL 1 - PUNTO 1/com/project/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/PARCIAL 1 - PUNTO 1/com/project/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/List.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/List_interface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Queue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/out/production/PARCIAL 1 - PUNTO 2/com/project/Stack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/src/com/project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PARCIAL 1 - PUNTO 2/src/com/project/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +119,8 @@
       <workItem from="1639885395885" duration="247000" />
       <workItem from="1640023864196" duration="6783000" />
       <workItem from="1640035294192" duration="648000" />
+      <workItem from="1640190533138" duration="1424000" />
+      <workItem from="1642023063002" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Creación de las clases bases de las estructuras de datos.">
       <created>1640024181548</created>

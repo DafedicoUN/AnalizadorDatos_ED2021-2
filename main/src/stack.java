@@ -3,8 +3,8 @@ public interface stack {
     void unstack();
     void stackFind(double find);
     void stackDisplay();
-    void StackEmpty();
-    void Min();
-    void Max();
-    void StackAverage();
+    void stackEmpty();
+    void min();
+    void max();
+    void stackAverage();
 }
