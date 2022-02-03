@@ -1,3 +1,5 @@
+package queue;
+
 public interface queue {
 
     void enqueue(double data);

@@ -1,3 +1,7 @@
+package queue;
+
+import queue.queue;
+
 class Queue_array implements queue {
 
     private static int front, rear, capacity;
@@ -73,9 +77,9 @@ class Queue_array implements queue {
         /*
         for (i = rear - 1; i >= front; i--){
             if (i == front){
-                System.out.print(queue[i] + "\n");
+                System.out.print(queue.queue[i] + "\n");
             } else {
-                System.out.print(queue[i] + " ");
+                System.out.print(queue.queue[i] + " ");
             }
         }
         */

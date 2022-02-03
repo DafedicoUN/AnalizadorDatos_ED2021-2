@@ -1,3 +1,7 @@
+package queue;
+
+import queue.queue;
+
 public class Queue_linked_list implements queue {
 
     static class Node

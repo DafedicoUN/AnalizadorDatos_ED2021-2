@@ -74,7 +74,7 @@ public class Interface {
         colaPrioridadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                JFrame frame = new JFrame("Priority queue");
+                JFrame frame = new JFrame("Priority queue.queue");
                 frame.setContentPane(new PriorityQueue().analizador);
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
