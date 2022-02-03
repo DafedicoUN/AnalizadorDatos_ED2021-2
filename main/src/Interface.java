@@ -56,6 +56,7 @@ public class Interface {
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                QueueI.main(null);
             }
         });
 
@@ -85,7 +86,7 @@ public class Interface {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 JFrame frame = new JFrame("Heap");
-                frame.setContentPane(new Heap().analizador);
+                frame.setContentPane(new HeapI().analizador);
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
