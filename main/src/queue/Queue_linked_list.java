@@ -1,22 +1,21 @@
 package queue;
 
-import queue.queue;
-
 public class Queue_linked_list implements queue {
 
     static class Node
     {
-        double data;
+        int data;
         Node next;
 
         //Constructor para crear un nuevo nodo de la cola.
-        public Node(double data) {
+        public Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
     Node front, rear;
+    int size = 0;
 
     public Queue_linked_list() {
         //Al inicializar la cola ambos tienen un valor nulo.
@@ -24,7 +23,7 @@ public class Queue_linked_list implements queue {
     }
 
     //Argegar un elemento a la cola.
-    public void enqueue(double data)
+    public void enqueue(int data)
     {
 
         //Crear un nuevo nodo
@@ -33,12 +32,14 @@ public class Queue_linked_list implements queue {
         //Si la cola está vacia, el nuevo dato es el frente y la parte trasera de la cola.
         if (this.rear == null) {
             this.front = this.rear = temp;
+            size = 1;
             return;
         }
 
         //Agrega el nodo a la parte trasera de la cola y cambia la parte trasera de la cola.
         this.rear.next = temp;
         this.rear = temp;
+        size += 1;
     }
 
     //Elimina un elemento del frente de la cola.
@@ -51,6 +52,7 @@ public class Queue_linked_list implements queue {
         //Guarda el anterior frente y mueve el frente al siguiente dato del frente actual.
         //Node temp = this.front;
         this.front = this.front.next;
+        size -= 1;
 
         //Si el nuevo frente el nulo, cambia la parte trasera a nulo.
         if (this.front == null)
@@ -84,21 +86,23 @@ public class Queue_linked_list implements queue {
     }
 
     //Busca el dato en los nodos de la cola de manera recursiva.
-    public void queueNodeSearch(Node a, double search)
+    public void queueNodeSearch(Node a, int search)
     {
-        if (null == a.next && a.data != search) {
-            System.out.println("Not found");
-        } else {
-            if(a.data == search){
-                System.out.println("Found");
-            } else {
-                queueNodeSearch(a.next, search);
+        Node temp = a;
+        if (temp != null) {
+            while (temp.next != null) {
+                if(temp.data == search){
+                    System.out.println("Found");
+                    return;
+                }
+                temp = temp.next;
             }
+            System.out.println("Not found");
         }
     }
 
     //Imprime si un dato en específico fue encontrado o no.
-    public void queueSearch(double search)
+    public void queueSearch(int search)
     {
         queueNodeSearch(this.front, search);
     }
@@ -111,45 +115,38 @@ public class Queue_linked_list implements queue {
     }
 
     //Suma los valores de los nodos de la cola de manera recursiva.
-    public double queueNodeSum(Node a)
+    public int queueNodeSum(Node a)
     {
-        if (null == a.next) {
-            return a.data;
-        } else {
-            return a.data + queueNodeSum(a.next);
+        int sum = 0;
+        Node temp = a;
+        if (a != null) {
+            while (temp.next != null) {
+                sum += temp.data;
+                temp = temp.next;
             }
-    }
-
-    public int queueNodeCount(Node a)
-    {
-        if (null == a.next) {
-            return 1;
-        } else {
-            return 1 + queueNodeCount(a.next);
         }
+        return sum;
     }
 
     //Imprime el promedio de los valores la cola.
     public void queueAverage() {
-        double sum = queueNodeSum(this.front);
-        int count = queueNodeCount(this.front);
-        System.out.println(sum/count);
+        int sum = queueNodeSum(this.front);
+        System.out.println(sum/size);
     }
 
-    public double queueNodeMax(Node a)
+    public int queueNodeMax(Node a)
     {
-        if (null == a.next) {
-            return a.data;
-        } else {
-            double max = a.data;
-            double data = queueNodeMax(a.next);
-            if(max < data){
-                max = data;
-                return max;
-            } else {
-                return max;
+        int max = 0;
+        Node temp = a;
+        if (a != null) {
+            while (temp.next != null) {
+                if(max < temp.data){
+                    max = temp.data;
+                }
+                temp = temp.next;
             }
         }
+        return max;
     }
 
     public void queueMax() {

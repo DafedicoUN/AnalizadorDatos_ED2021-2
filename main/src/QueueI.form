@@ -20,52 +20,10 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="73e7e" class="javax.swing.JTable" binding="table1" default-binding="true">
-            <constraints>
-              <grid row="0" column="3" row-span="3" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-8021"/>
-            </properties>
-          </component>
-          <component id="44683" class="javax.swing.JButton" binding="abrirButton">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="112" height="30"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-564"/>
-              <focusable value="false"/>
-              <font name="JetBrains Mono"/>
-              <hideActionText value="false"/>
-              <maximumSize width="109" height="30"/>
-              <minimumSize width="109" height="30"/>
-              <preferredSize width="109" height="30"/>
-              <text value="Abrir"/>
-            </properties>
-          </component>
-          <component id="fcaf4" class="javax.swing.JButton" binding="guardarButton">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-564"/>
-              <focusable value="false"/>
-              <font name="JetBrains Mono"/>
-              <hideActionText value="false"/>
-              <maximumSize width="109" height="30"/>
-              <minimumSize width="109" height="30"/>
-              <preferredSize width="109" height="30"/>
-              <text value="Guardar"/>
-            </properties>
-          </component>
           <component id="e76e0" class="javax.swing.JButton" binding="iniciarButton">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="30"/>
+                <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
@@ -81,7 +39,9 @@
           </component>
           <component id="968f4" class="javax.swing.JButton" binding="conectarButton">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <background color="-564"/>
@@ -111,28 +71,33 @@
               <text value="Detener captura"/>
             </properties>
           </component>
-          <component id="c3c05" class="javax.swing.JTextField" binding="puntoTextField">
+          <component id="7d96e" class="javax.swing.JButton" binding="llegaButton">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="112" height="30"/>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <background color="-4514032"/>
+              <text value="LLega una persona"/>
             </properties>
           </component>
-          <component id="ed7ac" class="javax.swing.JLabel">
+          <component id="5b324" class="javax.swing.JButton" binding="atendidoButton">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
             </constraints>
             <properties>
-              <background color="-564"/>
-              <text value="Puerto de conexión"/>
+              <background color="-10442704"/>
+              <text value="La persona es atendida"/>
             </properties>
           </component>
           <component id="849fb" class="javax.swing.JButton" binding="nuevoButton" default-binding="true">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <background color="-564"/>
@@ -143,6 +108,27 @@
               <minimumSize width="109" height="30"/>
               <preferredSize width="109" height="30"/>
               <text value="Nuevo"/>
+            </properties>
+          </component>
+          <component id="c3c05" class="javax.swing.JTextField" binding="puntoTextField">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="ed7ac" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-564"/>
+              <text value="Puerto de conexión"/>
             </properties>
           </component>
         </children>

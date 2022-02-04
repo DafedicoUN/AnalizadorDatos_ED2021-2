@@ -1,10 +1,10 @@
 package stack;
 
-class stack_array implements stack {
+class Stack_array implements stack {
     int top, size;
     double[]stack;
 
-    stack_array(int s){
+    Stack_array(int s){
         this.size=s;
         this.top=-1;
         this.stack=new double[s];

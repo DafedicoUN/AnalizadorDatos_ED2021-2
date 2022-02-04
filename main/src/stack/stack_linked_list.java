@@ -2,7 +2,7 @@ package stack;
 
 import stack.stack;
 
-class stack_linked_list implements stack {
+class Stack_linked_list implements stack {
     Node top;
     int size;
 

@@ -1,28 +1,28 @@
 package queue;
 
-import queue.queue;
+import javax.swing.*;
 
-class Queue_array implements queue {
+public class Queue_array implements queue {
 
     private static int front, rear, capacity;
-    private static double[] queue;
+    private static int[] queue;
 
-    Queue_array(int c)
+    public Queue_array(int c)
     {
         //Índices del frente y la parte trasera tienen un valor de 0.
         front = rear = 0;
         //Capacidad de la cola
         capacity = c;
-        queue = new double[capacity];
+        queue = new int[capacity];
     }
 
     //Agrega un elemento a la cola.
-    public void enqueue(double data)
+    public void enqueue(int data)
     {
 
         //Verifica si la cola está llena o no.
         if (capacity == rear) {
-            System.out.println("Queue is full");
+            JOptionPane.showMessageDialog(null, "La cola está llena");
         }
 
         //Insertar elemento en la cola.
@@ -37,13 +37,9 @@ class Queue_array implements queue {
     //Elimina un elemento del frente de la cola.
     public void dequeue()
     {
-
+        int atendido = this.peek();
         //Si la cola está vacia.
-        if (front == rear) {
-            System.out.println("Queue is empty");
-        }
-
-        else {
+        if (front != rear) {
             //Todos los elementos se desplazan hacia la izquierda borrando el primer elemento ingresado.
             //First IN, First OUT.
             if (rear - 1 >= 0) System.arraycopy(queue, 1, queue, 0, rear - 1);
@@ -53,7 +49,17 @@ class Queue_array implements queue {
 
             //La posición de la parte trasera de la cola disminuye.
             rear--;
+
+            if(this.peek() != 0){
+                JOptionPane.showMessageDialog(null, "Turno " + atendido + " fue atendido, turno " + this.peek() + " puede seguir");
+            } else {
+                JOptionPane.showMessageDialog(null, "Turno " + atendido + " fue atendido, no hay más personas en la cola");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay más personas en la cola");
         }
+
     }
 
     //Imprime los elementos de la cola.
@@ -61,7 +67,7 @@ class Queue_array implements queue {
     {
         int i;
         if (front == rear) {
-            System.out.println("Queue is Empty");
+            JOptionPane.showMessageDialog(null, "La cola está vacía");
             return;
         }
 
@@ -73,20 +79,10 @@ class Queue_array implements queue {
                 System.out.print(queue[i] + " ");
             }
         }
-
-        /*
-        for (i = rear - 1; i >= front; i--){
-            if (i == front){
-                System.out.print(queue.queue[i] + "\n");
-            } else {
-                System.out.print(queue.queue[i] + " ");
-            }
-        }
-        */
     }
 
     //Busca un elemento en la cola.
-    public void queueSearch(double search)
+    public void queueSearch(int search)
     {
         int i;
         if (front == rear) {
@@ -122,7 +118,7 @@ class Queue_array implements queue {
     public void queueAverage()
     {
         int i;
-        double sum = 0;
+        int sum = 0;
 
         if (front == rear) {
             return;
@@ -136,10 +132,9 @@ class Queue_array implements queue {
 
     }
 
-    public void queueMax()
-    {
+    public void queueMax() {
         int i;
-        double max = 0;
+        int max = 0;
 
         if (front == rear) {
             return;
@@ -152,6 +147,14 @@ class Queue_array implements queue {
         }
 
         System.out.println(max);
+    }
+
+    public int peek(){
+        if(front != rear){
+            return queue[0];
+        } else {
+            return 0;
+        }
     }
 
 
