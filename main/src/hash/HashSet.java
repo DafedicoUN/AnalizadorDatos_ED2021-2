@@ -29,6 +29,11 @@ public class HashSet {
     public void clear(){
         array = initList();
     }
+
+    public void delete(String s){
+        int hashValue = hash(s);
+        array.get(hashValue).delete(s);
+    }
 }
 
 
