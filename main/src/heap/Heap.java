@@ -3,7 +3,7 @@ package heap;
 import java.util.ArrayList;
 
 public class Heap {
-    ArrayList<Integer> a = new ArrayList<Integer>();
+    ArrayList<Integer> a = new ArrayList<>();
 
     void heapify(int i) {
         int size = a.size();
@@ -34,7 +34,7 @@ public class Heap {
         }
     }
 
-    void delete(int num)
+    public void delete(int num)
     {
         int size = a.size();
         int i;
@@ -73,4 +73,5 @@ public class Heap {
         }
         return sum / a.size();
     }
+
 }
