@@ -105,8 +105,4 @@ public class HeapI {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(runnable, 0, 3, TimeUnit.SECONDS);
     }
-
-    public static void main(String[] args){
-
-    }
 }

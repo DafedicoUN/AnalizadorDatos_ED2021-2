@@ -2,14 +2,15 @@ package hash;
 
 import java.util.Objects;
 
-public class Set {
+public class Map {
 
     static class Node{
-        String name;
+        String ID, email;
         Node next;
 
-        public Node(String s) {
-            this.name = s;
+        public Node(String s, String e) {
+            this.ID = s;
+            this.email = e;
             this.next = null;
         }
     }
@@ -17,21 +18,21 @@ public class Set {
     Node front, rear;
     int size = 0;
 
-    public Set() {
+    public Map() {
         this.front = this.rear = null;
     }
 
-    public void add(String data) {
+    public void add(String ID, String email) {
         Node temp = this.front;
-        Node a = new Node(data);
+        Node a = new Node(ID, email);
 
         if (this.front == null) {
             this.front = this.rear = a;
             size = 1;
         } else {
             while(temp != null){
-                String l = temp.name;
-                if(Objects.equals(l, data)){
+                String l = temp.ID;
+                if(Objects.equals(l, ID)){
                     System.out.println("NOT ADDED");
                     return;
                 }
@@ -46,12 +47,13 @@ public class Set {
     public void print(){
         Node temp = this.front;
         if(this.front != null) while (temp != null) {
-            String l = temp.name;
+            String l = temp.ID;
+            String l2 = temp.email;
             temp = temp.next;
             if (temp != null) {
-                System.out.print(l + " ");
+                System.out.print(l + " " + l2 + " ");
             } else {
-                System.out.print(l + "\n");
+                System.out.print(l + l2 + "\n");
             }
 
         }
@@ -60,12 +62,12 @@ public class Set {
     public void delete(String data){
         Node temp = this.front;
         Node prev = null;
-        if (temp != null && Objects.equals(temp.name, data)) {
+        if (temp != null && Objects.equals(temp.ID, data)) {
             this.front = temp.next;
             return;
         }
 
-        while (temp != null && !Objects.equals(temp.name, data)) {
+        while (temp != null && !Objects.equals(temp.ID, data)) {
             prev = temp;
             temp = temp.next;
         }
@@ -77,17 +79,22 @@ public class Set {
         prev.next = temp.next;
     }
 
-    public boolean contains(String data){
+    public String contains(String data){
         Node temp = this.front;
-        if (temp != null && Objects.equals(temp.name, data)) {
-            return true;
+        if (temp != null && Objects.equals(temp.ID, data)) {
+            return temp.email;
         }
 
-        while (temp != null && !Objects.equals(temp.name, data)) {
+        while (temp != null && !Objects.equals(temp.ID, data)) {
             temp = temp.next;
         }
 
-        return temp != null;
+        if(temp != null){
+            return temp.email;
+        }
+
+        return "NOT FOUND";
+
     }
 
 }
