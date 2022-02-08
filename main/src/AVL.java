@@ -1,8 +1,5 @@
 // Implementacion Arbol AVL
 
-// esto se puede quitar en las pruebas
-package prototipo;
-
 import javax.lang.model.util.ElementScanner6;
 
 // Se define un nodo aparte para el AVL debido a la implementacion del prototipo
