@@ -1,9 +1,9 @@
 package list;
 
-public class listaGenerica<T>
-{
-    public class NodoGenerico<T>
-    {
+import java.io.*;
+
+public class listaGenerica<T> implements Serializable {
+    public class NodoGenerico<T> {
         T data;
         private NodoGenerico<T> next;
         public NodoGenerico(){
@@ -30,6 +30,25 @@ public class listaGenerica<T>
     private NodoGenerico cabeza;
     private NodoGenerico cola;
 
+    byte[] previous;
+
+    byte[] serialize() throws IOException {
+        ByteArrayOutputStream bs= new ByteArrayOutputStream();
+        ObjectOutputStream os = new ObjectOutputStream (bs);
+        listaGenerica list = this;
+        os.writeObject(list);
+        os.close();
+        return bs.toByteArray();
+    }
+
+    static listaGenerica read(byte[] a) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream bs= new ByteArrayInputStream(a);
+        ObjectInputStream is = new ObjectInputStream(bs);
+        listaGenerica list = (listaGenerica) is.readObject();
+        is.close();
+        return list;
+    }
+
     // Operaciones con cabeza y cola
     public listaGenerica(){
         cabeza=null;
@@ -43,8 +62,8 @@ public class listaGenerica<T>
     }
 
     // Añadir elemento al final
-    public void PushFront(T item)
-    {
+    public void PushFront(T item) throws IOException {
+        previous =  serialize();
         NodoGenerico NuevoNodo = new NodoGenerico();
         NuevoNodo.data = item;
         NuevoNodo.next = cabeza;
@@ -54,7 +73,8 @@ public class listaGenerica<T>
     }
 
     // Añadir elemento al inicio
-    public void PushBack(T item){
+    public void PushBack(T item) throws IOException {
+        previous =  serialize();
         NodoGenerico NodoNuevo = new NodoGenerico();
         NodoNuevo.data = item;
         NodoNuevo.next = null;
@@ -68,7 +88,8 @@ public class listaGenerica<T>
     } 
 
     // Extraer dato del final (cabeza)
-    public T PopFront(){
+    public T PopFront() throws IOException {
+        previous =  serialize();
         NodoGenerico Apuntador = new NodoGenerico();
         Apuntador = cabeza;
         if (cabeza == null){
@@ -80,7 +101,8 @@ public class listaGenerica<T>
     }
 
     // Extraer dato del inicio (cola)
-    public T PopBack(){
+    public T PopBack() throws IOException {
+        previous =  serialize();
         NodoGenerico Apuntador = new NodoGenerico();
         Apuntador = cabeza;
         T s;
@@ -102,7 +124,8 @@ public class listaGenerica<T>
     }
 
     // Metodo de insertar, añade un item en la ubicacion "node"
-    public void AddAfter(NodoGenerico node , T item){
+    public void AddAfter(NodoGenerico node , T item) throws IOException {
+        previous =  serialize();
         NodoGenerico NuevoNodo = new NodoGenerico();
         NuevoNodo.data = item; 
         NuevoNodo.next = node.next;
