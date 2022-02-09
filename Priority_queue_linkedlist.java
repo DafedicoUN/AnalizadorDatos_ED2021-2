@@ -1,47 +1,56 @@
 class Priority_queue_linkedlist {
-    static class Node
-    int data;
-    int priority;
-    Node next;
+    //constructor para crear un nodo en la cola.
+    static class Node {
+        int data;
+        int priority;
+        Node next;
 
-    public Node(int d, int pr) {
-        this.data = d;
-        this.priority = pr;
-    }
+        public Node(int d, int pr) {
+            this.data = d;
+            this.priority = pr;
+        }
 }
 
     private static Node head = null;
+    //metodo para agregar un elemento a la cola.
     private static void enqueue(int d, int pr) {
+        //crea nuevo nodo.
         Node newNode = new Node(d, pr);
+        //si la cola se encuentra vacia, el nuevo nodo sera la cabeza de la cola.
         if (head == null) {
             head = newNode;
             return;
         }
         Node temp = head;
         Node previ = null;
+        //Se busca un nodo con prioridad menor a la ingresada.
         while (temp!= null && temp.priority > pr) {
             previ = temp;
             temp = temp.next;
         }
         if (temp == null) {
+            //si no se encuentra un nodo con prioridad menor
             previ.next = newNode;
         } else {
+            //todos los nodos tienen una prioridad menor este se inserta al principio.
             if (previ == null) {
                 newNode.next = head;
                 head = newNode;
             } else {
-
+                // se encuntra y se añade el nodo antes del que tiene una prioridad menor
                 newNode.next = temp;
                 previ.next = newNode;
             }
         }
     }
+    //devuelve el elemento con maxima prioridad de la lista
     private static int peek() {
         if (head != null) {
             return (head.data);
         }
         return -1;
     }
+    //elimina el elemento con maxima prioridad de la lista
     private static int dequeue() {
         if (head != null) {
             int d = head.data;
@@ -50,7 +59,7 @@ class Priority_queue_linkedlist {
         }
         return-1;
     }
-
+    //metodo para imprimir los nodos de la cola recursivamente.
     public static void nDisplay(Node x)
     {
         if (null == x.next) {
@@ -61,6 +70,7 @@ class Priority_queue_linkedlist {
             nDisplay(x.next);
         }
     }
+    //metodo para imprimir la cola en base a sus nodos.
     public static void qpDisplay()
     {
         if( head== null){
@@ -71,7 +81,7 @@ class Priority_queue_linkedlist {
 
     }
 
-
+    //metood parabuscar el dato mayor en la cola.
     public static int queueNodeMax(Node a)
     {
         Node temp = a;
