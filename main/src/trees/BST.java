@@ -80,7 +80,7 @@ public class BST
     }
 
     // Mismo metodo del trees.AVL
-    public NodoAVL FindMin(NodoAVL Raiz)
+    public NodoAVL findMin(NodoAVL Raiz)
     {
         if(Raiz == null)
             return null;
@@ -90,7 +90,7 @@ public class BST
         return Raiz;
     }
     // Mismo metodo del trees.AVL
-    public NodoAVL FindMax(NodoAVL Raiz){
+    public NodoAVL findMax(NodoAVL Raiz){
         if(Raiz == null)
             return null;
         while(Raiz.right != null){

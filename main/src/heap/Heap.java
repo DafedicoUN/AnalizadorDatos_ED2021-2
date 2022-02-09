@@ -38,21 +38,26 @@ public class Heap {
     {
         int size = a.size();
         int i;
+        boolean found = false;
         for (i = 0; i < size; i++)
         {
-            if (num == a.get(i))
+            if (num == a.get(i)) {
+                found = true;
                 break;
+            }
+        }
+        if(found){
+            int temp = a.get(i);
+            a.set(i, a.get(size-1));
+            a.set(size-1, temp);
+
+            a.remove(size-1);
+            for (int j = size / 2 - 1; j >= 0; j--)
+            {
+                heapify(j);
+            }
         }
 
-        int temp = a.get(i);
-        a.set(i, a.get(size-1));
-        a.set(size-1, temp);
-
-        a.remove(size-1);
-        for (int j = size / 2 - 1; j >= 0; j--)
-        {
-            heapify(j);
-        }
     }
 
     public void print() {
@@ -66,12 +71,14 @@ public class Heap {
         return a.get(0);
     }
 
-    public int average(){
-        int sum = 0;
+    public void find(int data){
         for (Integer i : a) {
-            sum += i;
+            if(i == data){
+                System.out.println("Found");
+                return;
+            }
         }
-        return sum / a.size();
+        System.out.println("Not found");
     }
 
 }

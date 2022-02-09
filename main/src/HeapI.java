@@ -76,16 +76,6 @@ public class HeapI {
                 }
             }
         });
-        promedioTemperaturaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(!connected){
-                    JOptionPane.showMessageDialog(null, "No se ha realizado una conexión");
-                } else {
-                    JOptionPane.showMessageDialog(null, h.average() + " Grados C°");
-                }
-            }
-        });
     }
 
     Runnable runnable = new Runnable() {
