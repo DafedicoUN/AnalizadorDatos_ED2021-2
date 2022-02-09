@@ -14,7 +14,7 @@
 
 
 // Variables definidas para los cálculos
-float ax, ay, az, giro_x, giro_y;
+double ax, ay, az, at, giro_x, giro_y;
 long inicio, actual, conteo;
 
 // Instanciamiento de las librerias
@@ -34,7 +34,7 @@ void setup() {
       delay(10);
     }
   }
-  Serial.println("Sensor MPU6050 Encontrado!");
+  //Serial.println("Sensor MPU6050 Encontrado!");
 
   if (!bmp.begin()) {
   Serial.println("Could not find a valid BMP085/BMP180 sensor, check wiring!");
@@ -61,40 +61,49 @@ void loop() {
 
   // Debido al tiempo de prueba del video solo se enviaran 10 datos
 
-  if(conteo<100){
+  if(conteo<25){
     
-    // actual=millis()-inicio;
+    actual=millis()-inicio;
     // Se almacenan las aceleraciones en las variables
 
     ax=a.acceleration.x;
     ay=a.acceleration.y;
     az=a.acceleration.z;
-        
-    // Primero las aceleraciones ax,ay,az, despues la inclinacion gx,gy y por ultimo la estacion del clima temp, press, 
-    // y por ultimo el conteo o el "datastamp"
 
+    Serial.print("t = ");
+    Serial.print(actual);
+    Serial.print(" , ");
+    
+    Serial.print("ax = ");
     Serial.print(ax);
     Serial.print(" , ");
+    Serial.print("ay = ");
     Serial.print(ay);
     Serial.print(" , ");
+    Serial.print("az = ");
     Serial.print(az);
     Serial.print(" , ");
 
+    Serial.print("Temp = ");
     Serial.print(bmp.readTemperature());
     Serial.print(" , ");
+    Serial.print("Pbar = ");
     Serial.print(bmp.readPressure());
     Serial.print(" , ");
-    Serial.print(bmp.readAltitude(102000));
+    Serial.print("Altitud = ");
+    Serial.print(bmp.readAltitude(103000));
     Serial.print(" , ");
     
     Serial.println(conteo);
     conteo++;
-    delay(100);
+    delay(200);
   }
-  // else{
-    // Serial.print("Tiempo de envio de 10000 datos : ");
-    // Serial.println(actual);
-    // delay(1000); 
-    //}
-  
+  else
+  {
+    // Esto permite un ciclo continuo, 25 datos y una pausa de 5 segundos
+    delay(5000);
+    Serial.println("");
+    Serial.println("");
+    conteo=0;
+  }
 }
