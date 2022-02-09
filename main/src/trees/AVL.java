@@ -1,47 +1,9 @@
-// Implementacion Arbol BST
-// A diferencia del arbol AVL este no se autobalancea, por lo que su altura puede ser desproporcionada
+package trees;// Implementacion Arbol trees.AVL
 
-// esto se puede quitar en las pruebas
-package prototipo;
-
-import javax.lang.model.util.ElementScanner6;
-
-// Se recicla el nodo del arbol AVL para facilitar la implementacion del BST
-class NodoAVL
-{
-    // se usa el valor "repetido" en caso de existir datos repetidos
-    float data;
-    int altura, repetido;
-
-    NodoAVL left=null; 
-    NodoAVL right=null;
-
-    // Constructor
-    public NodoAVL(float data)
-    {
-        this.data=data;
-        altura=1;
-        repetido=1;
-    }
-    
-
-    // Fundiones de obtener datos - Aplica tambien el repetido
-    public float getData()
-    {
-        return data;
-    }
-    public int getAltura()
-    {
-        return altura;
-    }
-    public int getRepetido()
-    {
-        return repetido;
-    }
-}
+// Se define un nodo aparte para el trees.AVL debido a la implementacion del prototipo
 
 // Clase Principal 
-public class BST
+public class AVL
 {
     // Raiz Permanente
     NodoAVL Raiz;
@@ -78,7 +40,6 @@ public class BST
 
         return N.altura;
     }
-    // Mismo metodo del AVL
     public NodoAVL FindMin(NodoAVL Raiz)
     {
         if(Raiz == null)
@@ -88,7 +49,6 @@ public class BST
         }
         return Raiz;
     }
-    // Mismo metodo del AVL
     public NodoAVL FindMax(NodoAVL Raiz){
         if(Raiz == null)
             return null;
@@ -97,8 +57,11 @@ public class BST
             }
         return Raiz;
     }
-    
-    // Busqueda Especifica, se realiza un singleton debido a la cantidad de busquedas acomuladas que pueden realizarse
+    private int getHeight(NodoAVL node)  
+    {  
+        return node == null ? -1 : node.altura;  
+    }
+    // Busqueda Especifica, se realiza un singleton debido a la cantidad de busquedas que pueden realizarse
 
     public NodoAVL Find(float numero, NodoAVL Raiz) 
     {
@@ -129,6 +92,44 @@ public class BST
             return (Aux.altura-1); 
     }
     
+    // Funciones requeridas para el balanceo - Caracteristica principal del trees.AVL
+    public static NodoAVL RotacionDer(NodoAVL R){
+        NodoAVL x = R.left;
+        NodoAVL T2 = x.right;
+
+        x.right = R;
+        R.left = T2;
+
+        R.altura = (int) (Math.max(Altura(R.left),Altura(R.right))+1);
+        x.altura = (int) (Math.max(Altura(x.left),Altura(x.right))+1);
+
+        return x;
+    } 
+    public static NodoAVL RotacionIzq(NodoAVL x){
+        NodoAVL R = x.right;
+        NodoAVL T2 = R.left;
+
+        R.left = x;
+        x.right = T2;
+
+        x.altura = (int) (Math.max(Altura(x.left),Altura(x.right))+1);
+        R.altura = (int) (Math.max(Altura(R.left),Altura(R.right))+1);
+
+        return R ;
+    }
+
+    private NodoAVL DobleIzquierda(NodoAVL nodo3)
+    {
+        nodo3.left=RotacionDer(nodo3.left);
+        return RotacionIzq(nodo3);
+    }
+
+    private NodoAVL DobleDerecha(NodoAVL nodo1)
+    {
+        nodo1.right=RotacionIzq(nodo1.right);
+        return RotacionDer(nodo1);
+    }
+
     public void updateAltura(NodoAVL node)
     {
         node.altura = (int) (1 + Math.max(Altura(node.left),Altura(node.right)));
@@ -153,10 +154,30 @@ public class BST
             return(new NodoAVL(num));
         // inserta un nuevo elemento si no existe
 
+        // LA ROTACION ES INSTANTANEA DESDE QUE SE LLAMA INSERTAR
         if(num<node.data)
-            node.left = Insert(num,node.left);         
+        {
+            node.left = Insert(num,node.left);
+            if((getHeight(node.left)-getHeight(node.right))==2)
+            {
+                if(num<node.left.data)
+                    node = RotacionIzq(node);
+                else
+                    node = DobleIzquierda(node);
+            }
+        }
+         
         else if(num>node.data)
+        {
             node.right = Insert(num,node.right);
+            if(getHeight(node.right)-getHeight(node.left)==2)
+            {
+                if(num>node.right.data)
+                    node = RotacionDer(node);
+                else
+                    node = DobleDerecha(node);
+            }
+        }
         else if(num==node.data)
         {
             // Este caso es bastante importante, debido a que se puede contar cuantas veces esta repetido el elemento en un nodo
@@ -164,6 +185,7 @@ public class BST
             throw new RuntimeException("Usuario en uso");
         }
         updateAltura(node);
+
         return node;
     }
 
@@ -195,7 +217,36 @@ public class BST
                 // aca va la recursividad
             }
         }
-      
+        if(node!= null)
+            node = rebalanceo(node);
+        
         return node;
+    }
+
+    public NodoAVL rebalanceo(NodoAVL z)
+    {
+        updateAltura(z);
+        int balance=Balanceado(z);
+        if(balance >1)
+        {
+            if(Altura(z.right.right)>Altura(z.right.left))
+                z=RotacionIzq(z);
+            else
+            {
+                z.right=RotacionDer(z);
+                z=RotacionIzq(z);
+            }
+        }
+        else if(balance<-1)
+        {
+            if(Altura(z.left.left)>Altura(z.left.right))
+                z=RotacionDer(z);
+            else
+            {
+                z.left=RotacionIzq(z);
+                z=RotacionDer(z);
+            }
+        }
+        return z;
     }
 }

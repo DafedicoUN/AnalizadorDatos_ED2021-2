@@ -1,10 +1,10 @@
 package stack;
 
-class Stack_array implements stack {
+public class Stack_array implements stack {
     int top, size;
     double[]stack;
 
-    Stack_array(int s){
+    public Stack_array(int s){
         this.size=s;
         this.top=-1;
         this.stack=new double[s];
@@ -18,7 +18,7 @@ class Stack_array implements stack {
         return (top==size-1);
     }
     //Agregar elemento a la pila.
-    public void stacks(double data){
+    public void stacks(int data){
         //Verificar si la pila esta llena.
         if (Full()){
             System.out.println("Stack is full");
@@ -41,7 +41,7 @@ class Stack_array implements stack {
         }
     }
     //Buscar un dato dentro de la pila.
-    public void stackFind(double find){
+    public void stackFind(int find){
         //Verificar si la pila esta vacia.
         if (Empty()){
             System.out.println("Stack is empty");

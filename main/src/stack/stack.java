@@ -1,9 +1,9 @@
 package stack;
 
 public interface stack {
-    void stacks(double data);
+    void stacks(int data);
     void unstack();
-    void stackFind(double find);
+    void stackFind(int find);
     void stackDisplay();
     void stackEmpty();
     void min();

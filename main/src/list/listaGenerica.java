@@ -118,7 +118,11 @@ public class listaGenerica<T>
         for(int i = 0 ; i< item-1;i++){
             Apuntador = Apuntador.next;
         }
-        return (T) Apuntador.data;
+        if(Apuntador != null){
+            return (T) Apuntador.data;
+        }
+
+        return null;
     }
 
     // Este es bastante util cuando hay items repetidos

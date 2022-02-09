@@ -16,6 +16,8 @@ public class Hash {
     private JButton detenerButton;
     private JButton verificarSiSeEncuentraButton;
     private JTextField busquedaTextField;
+    private JButton borrarAlumno;
+    private JTextField borrarTextField;
     boolean connected = false;
     HashMap h = new HashMap();
     boolean shutdown = false;
@@ -54,6 +56,13 @@ public class Hash {
                 } else {
                     JOptionPane.showMessageDialog(null, "No fue encontrado");
                 }
+            }
+        });
+        borrarAlumno.addActionListener(actionEvent -> {
+            String textFieldValue = borrarTextField.getText();
+            if(!textFieldValue.equals("")){
+                h.delete(textFieldValue);
+                JOptionPane.showMessageDialog(null, textFieldValue + "eliminado");
             }
         });
     }

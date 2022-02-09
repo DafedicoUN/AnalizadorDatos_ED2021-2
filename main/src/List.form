@@ -35,7 +35,7 @@
               <maximumSize width="109" height="30"/>
               <minimumSize width="109" height="30"/>
               <preferredSize width="109" height="30"/>
-              <text value="AVL"/>
+              <text value="trees.AVL"/>
             </properties>
           </component>
           <component id="28676" class="javax.swing.JButton" binding="pilaButton" default-binding="true">

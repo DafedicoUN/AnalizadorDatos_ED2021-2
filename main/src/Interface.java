@@ -6,7 +6,6 @@ public class Interface {
 
 
     public JButton listaEnlazadaButton;
-    public JButton AVLButton;
     public JButton pilaButton;
     public JButton colaButton;
     public JButton hashingButton;
@@ -20,17 +19,6 @@ public class Interface {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFrame frame = new JFrame("Linked List");
                 frame.setContentPane(new List().analizador);
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(true);
-            }
-        });
-
-        AVLButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                JFrame frame = new JFrame("AVL");
-                frame.setContentPane(new AVL().analizador);
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);

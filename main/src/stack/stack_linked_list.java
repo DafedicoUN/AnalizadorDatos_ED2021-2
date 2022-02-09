@@ -1,16 +1,14 @@
 package stack;
 
-import stack.stack;
-
-class Stack_linked_list implements stack {
+public class Stack_linked_list implements stack {
     Node top;
     int size;
 
     class Node {
-        double data;
+        int data;
         Node next;
 
-        public Node(double data) {
+        public Node(int data) {
             this.data = data;
             this.next = null;
         }
@@ -22,7 +20,7 @@ class Stack_linked_list implements stack {
     }
 
     //Insertar dato en el top de la pila.
-    public void stacks(double data) {
+    public void stacks(int data) {
         //Nodo temporal para crear añadir una posicion y asignar el valor a top.
         Node temp = new Node(data);
         temp.next = top;
@@ -64,7 +62,7 @@ class Stack_linked_list implements stack {
     }
 
     //Busca un dato dentro de la pila.
-    public void stackFind(double data) {
+    public void stackFind(int data) {
         if (Empty()) {
             System.out.print("\n" + "Stack is empty" + "\n");
         } else {
@@ -94,7 +92,7 @@ class Stack_linked_list implements stack {
         if (Empty()) {
             System.out.print("\n" + "Stack is empty" + "\n");
         } else {
-            double max = 0;
+            int max = 0;
             Node a = top;
             //Se Busca entre los nodos un valor mayor a max y se reemplaza en caso de ser mayor.
             while (a != null) {
@@ -111,7 +109,7 @@ class Stack_linked_list implements stack {
         if (Empty()) {
             System.out.print("\n" + "Stack is empty" + "\n");
         } else {
-            double min = Double.MAX_VALUE;
+            int min = Integer.MAX_VALUE;
             Node a = top;
             //Se Busca entre los nodos un valor menor a min y se reemplaza en caso de ser menor.
             while (a != null) {
@@ -133,7 +131,7 @@ class Stack_linked_list implements stack {
             System.out.print("\n" + "Stack is empty" + "\n");
         } else {
             Node a = top;
-            double sum = 0;
+            int sum = 0;
             int count = 0;
             //Suma los valores de la pila recorriendo cada nodo.
             while (a != null) {
