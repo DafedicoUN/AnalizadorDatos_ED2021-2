@@ -33,14 +33,16 @@ public class AVL
     {
         return Raiz==null;
     }
-    public static int Altura(NodoAVL N)
+
+    public static int altura(NodoAVL N)
     {
         if(N== null)
             return 0;
 
         return N.altura;
     }
-    public NodoAVL FindMin(NodoAVL Raiz)
+
+    public NodoAVL findMin(NodoAVL Raiz)
     {
         if(Raiz == null)
             return null;
@@ -49,7 +51,8 @@ public class AVL
         }
         return Raiz;
     }
-    public NodoAVL FindMax(NodoAVL Raiz){
+
+    public NodoAVL findMax(NodoAVL Raiz){
         if(Raiz == null)
             return null;
         while(Raiz.right != null){
@@ -57,17 +60,19 @@ public class AVL
             }
         return Raiz;
     }
-    private int getHeight(NodoAVL node)  
+
+    private int getHeight(NodoAVL node)
     {  
         return node == null ? -1 : node.altura;  
     }
     // Busqueda Especifica, se realiza un singleton debido a la cantidad de busquedas que pueden realizarse
 
-    public NodoAVL Find(float numero, NodoAVL Raiz) 
+    public NodoAVL find(float numero, NodoAVL Raiz)
     {
         return encontrar(numero, Raiz);
     }
-    private NodoAVL encontrar(float numero, NodoAVL nodo) 
+
+    private NodoAVL encontrar(float numero, NodoAVL nodo)
     {
         while(nodo!= null)
         {
@@ -85,7 +90,7 @@ public class AVL
     // Altura especifica de un Nodo
     public int Height(float dato, NodoAVL Raiz)
     {
-        NodoAVL Aux = Find(dato, Raiz);
+        NodoAVL Aux = find(dato, Raiz);
         if(Aux == null)
             return -1;
         else
@@ -100,11 +105,12 @@ public class AVL
         x.right = R;
         R.left = T2;
 
-        R.altura = (int) (Math.max(Altura(R.left),Altura(R.right))+1);
-        x.altura = (int) (Math.max(Altura(x.left),Altura(x.right))+1);
+        R.altura = (int) (Math.max(altura(R.left),altura(R.right))+1);
+        x.altura = (int) (Math.max(altura(x.left),altura(x.right))+1);
 
         return x;
     } 
+
     public static NodoAVL RotacionIzq(NodoAVL x){
         NodoAVL R = x.right;
         NodoAVL T2 = R.left;
@@ -112,8 +118,8 @@ public class AVL
         R.left = x;
         x.right = T2;
 
-        x.altura = (int) (Math.max(Altura(x.left),Altura(x.right))+1);
-        R.altura = (int) (Math.max(Altura(R.left),Altura(R.right))+1);
+        x.altura = (int) (Math.max(altura(x.left),altura(x.right))+1);
+        R.altura = (int) (Math.max(altura(R.left),altura(R.right))+1);
 
         return R ;
     }
@@ -132,23 +138,23 @@ public class AVL
 
     public void updateAltura(NodoAVL node)
     {
-        node.altura = (int) (1 + Math.max(Altura(node.left),Altura(node.right)));
+        node.altura = (int) (1 + Math.max(altura(node.left),altura(node.right)));
     }
 
     public static int Balanceado(NodoAVL R){
         if(R == null)
             return 0;
-        return Altura(R.left)-Altura(R.right);
+        return altura(R.left)-altura(R.right);
     }
     
     // ***  Metodo de Insertar ***
     
     public void insertElement(float numero)
     {
-        Raiz=Insert(numero,Raiz);
+        Raiz = insert(numero,Raiz);
     }
 
-    public NodoAVL Insert(float num, NodoAVL node)
+    public NodoAVL insert(float num, NodoAVL node)
     {
         if(node == null)
             return(new NodoAVL(num));
@@ -157,7 +163,7 @@ public class AVL
         // LA ROTACION ES INSTANTANEA DESDE QUE SE LLAMA INSERTAR
         if(num<node.data)
         {
-            node.left = Insert(num,node.left);
+            node.left = insert(num,node.left);
             if((getHeight(node.left)-getHeight(node.right))==2)
             {
                 if(num<node.left.data)
@@ -169,7 +175,7 @@ public class AVL
          
         else if(num>node.data)
         {
-            node.right = Insert(num,node.right);
+            node.right = insert(num,node.right);
             if(getHeight(node.right)-getHeight(node.left)==2)
             {
                 if(num>node.right.data)
@@ -229,7 +235,7 @@ public class AVL
         int balance=Balanceado(z);
         if(balance >1)
         {
-            if(Altura(z.right.right)>Altura(z.right.left))
+            if(altura(z.right.right)>altura(z.right.left))
                 z=RotacionIzq(z);
             else
             {
@@ -239,7 +245,7 @@ public class AVL
         }
         else if(balance<-1)
         {
-            if(Altura(z.left.left)>Altura(z.left.right))
+            if(altura(z.left.left)>altura(z.left.right))
                 z=RotacionDer(z);
             else
             {

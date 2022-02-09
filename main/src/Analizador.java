@@ -1,4 +1,4 @@
-import priorityQueue.PQ_binary_heap;
+import trees.BST;
 
 public class Analizador {
 
@@ -10,17 +10,17 @@ public class Analizador {
         frame.pack();
         frame.setVisible(true);
 */
-        int size = 1000000;
+        int size = 100;
 
-        PQ_binary_heap pq = new PQ_binary_heap(size);
+        BST t = new BST();
 
         for(int i = size - 1; i > 0 ; i--){
-            PQ_binary_heap.insert(i);
+            t.insertElement(i);
         }
 
         long inicio = System.nanoTime();
 
-        PQ_binary_heap.getMax();
+        t.insertElement(1);
 
         long fin = System.nanoTime();
 

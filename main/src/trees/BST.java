@@ -59,6 +59,7 @@ public class BST
     {
         this.Raiz = Raiz;
     }
+
     public NodoAVL getRaiz()
     {
         return Raiz;
@@ -69,13 +70,15 @@ public class BST
     {
         return Raiz==null;
     }
-    public static int Altura(NodoAVL N)
+
+    public static int altura(NodoAVL N)
     {
         if(N== null)
             return 0;
 
         return N.altura;
     }
+
     // Mismo metodo del trees.AVL
     public NodoAVL FindMin(NodoAVL Raiz)
     {
@@ -118,7 +121,7 @@ public class BST
     } 
 
     // Altura especifica de un Nodo
-    public int Height(float dato, NodoAVL Raiz)
+    public int height(float dato, NodoAVL Raiz)
     {
         NodoAVL Aux = Find(dato, Raiz);
         if(Aux == null)
@@ -129,13 +132,13 @@ public class BST
     
     public void updateAltura(NodoAVL node)
     {
-        node.altura = (int) (1 + Math.max(Altura(node.left),Altura(node.right)));
+        node.altura = (int) (1 + Math.max(altura(node.left),altura(node.right)));
     }
 
     public static int Balanceado(NodoAVL R){
         if(R == null)
             return 0;
-        return Altura(R.left)-Altura(R.right);
+        return altura(R.left)-altura(R.right);
     }
     
     // ***  Metodo de Insertar ***
