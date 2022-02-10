@@ -116,6 +116,9 @@ class pq_binary_heap{
                 System.out.print("found" + "\n");
             }
         }
+    static void max(){
+        System.out.print(H[0]);
+    }
 
         //imprime la cola de prioridad.
         static void Display(){
